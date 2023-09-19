@@ -1,4 +1,4 @@
-package com.example.cirlan.ui.theme
+package com.example.cirlan.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
