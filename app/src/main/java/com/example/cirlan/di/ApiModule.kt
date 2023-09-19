@@ -4,6 +4,8 @@ import com.example.cirlan.data.remote.ApiDetails
 import com.example.cirlan.data.remote.ApiRequest
 import com.example.cirlan.data.repository.ApiRepo
 import com.example.cirlan.data.repository.ApiRepoImplemented
+import com.example.cirlan.domain.mapper.DriverModelMapper
+import com.example.cirlan.domain.mapper.RouteModelMapper
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -53,9 +55,21 @@ class ApiModule{
     }
 
     @Provides
+    fun provideDriverModelMapper(): DriverModelMapper{
+        return DriverModelMapper()
+    }
+
+    @Provides
+    fun provideRouteModelMapper(): RouteModelMapper{
+        return RouteModelMapper()
+    }
+
+    @Provides
     fun provideRepo(
-        api: ApiRequest
+        api: ApiRequest,
+        driverModelMapper: DriverModelMapper,
+        routeModelMapper: RouteModelMapper
     ): ApiRepo{
-        return ApiRepoImplemented(api)
+        return ApiRepoImplemented(api, driverModelMapper, routeModelMapper)
     }
 }
