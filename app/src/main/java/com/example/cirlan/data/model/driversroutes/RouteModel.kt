@@ -1,4 +1,4 @@
-package com.example.cirlan.domain.model.driversroutes
+package com.example.cirlan.data.model.driversroutes
 
 
 import com.google.gson.annotations.SerializedName
