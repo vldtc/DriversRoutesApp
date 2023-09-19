@@ -1,7 +1,7 @@
 package com.example.cirlan.data.remote
 
-import com.example.cirlan.domain.model.driversroutes.DriverModel
-import com.example.cirlan.domain.model.driversroutes.RouteModel
+import com.example.cirlan.data.model.driversroutes.DriverModel
+import com.example.cirlan.data.model.driversroutes.RouteModel
 import retrofit2.http.GET
 
 interface ApiRequest {

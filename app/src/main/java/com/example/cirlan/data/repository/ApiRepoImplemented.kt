@@ -1,8 +1,8 @@
 package com.example.cirlan.data.repository
 
 import com.example.cirlan.data.remote.ApiRequest
-import com.example.cirlan.domain.model.driversroutes.DriverModel
-import com.example.cirlan.domain.model.driversroutes.RouteModel
+import com.example.cirlan.data.model.driversroutes.DriverModel
+import com.example.cirlan.data.model.driversroutes.RouteModel
 import javax.inject.Inject
 
 class ApiRepoImplemented @Inject constructor(
