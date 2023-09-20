@@ -1,9 +1,7 @@
-package com.example.cirlan.data.repository
+package com.example.cirlan.data.repository.driversroutesapi
 
 import com.example.cirlan.data.remote.ApiRequest
-import com.example.cirlan.data.model.driversroutes.DriverModel
 import com.example.cirlan.data.model.driversroutes.DriversRoutesModel
-import com.example.cirlan.data.model.driversroutes.RouteModel
 import com.example.cirlan.domain.mapper.DriverModelMapper
 import com.example.cirlan.domain.mapper.RouteModelMapper
 import com.example.cirlan.domain.model.driversroutesmapper.DriverModelMapped

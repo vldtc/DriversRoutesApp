@@ -1,4 +1,4 @@
-package com.example.cirlan.data.repository
+package com.example.cirlan.data.repository.driversroutesapi
 
 import com.example.cirlan.data.model.driversroutes.DriverModel
 import com.example.cirlan.data.model.driversroutes.DriversRoutesModel
