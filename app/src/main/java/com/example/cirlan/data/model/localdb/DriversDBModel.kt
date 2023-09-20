@@ -5,6 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "drivers_table")
 data class DriversDBModel(
-    @PrimaryKey val id: String,
-    val name: String?
+    @PrimaryKey val id: String = "",
+    val name: String? = ""
 )
