@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -45,7 +46,9 @@ import com.example.cirlan.presentation.common.LoadingBar
 import com.example.cirlan.presentation.ui.theme.LineColour
 
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    onDriverClick: (String) -> Unit
+) {
 
     val viewModel = hiltViewModel<MainViewModel>()
     val drivers by viewModel.drivers.collectAsState()
@@ -54,7 +57,12 @@ fun MainScreen() {
     viewModel.getDriversFromDB()
     viewModel.getRoutesFromDB()
 
-    MainScreenContent(drivers, loadingState)
+    MainScreenContent(
+        drivers = drivers,
+        loadingState = loadingState,
+        onDriverClick = { driverId ->
+            onDriverClick(driverId)
+        })
 
 }
 
@@ -62,7 +70,8 @@ fun MainScreen() {
 @Composable
 fun MainScreenContent(
     drivers: List<DriversDBModel>,
-    loadingState: Boolean
+    loadingState: Boolean,
+    onDriverClick: (String) -> Unit
 ) {
 
     val (sortBy, setSortBy) = remember { mutableStateOf("First\nname") }
@@ -84,7 +93,9 @@ fun MainScreenContent(
             DriversLegend()
         }
         items(sortedList.size ?: 0) {
-            DriversItem(sortedList[it])
+            DriversItem(sortedList[it], onDriverClick = { driverId ->
+                onDriverClick(driverId)
+            })
         }
     }
 
@@ -93,12 +104,16 @@ fun MainScreenContent(
 
 @Composable
 fun DriversItem(
-    driver: DriversDBModel
+    driver: DriversDBModel,
+    onDriverClick: (String) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(50.dp),
+            .height(50.dp)
+            .clickable {
+                onDriverClick(driver.id)
+            },
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp,
             pressedElevation = 0.dp
