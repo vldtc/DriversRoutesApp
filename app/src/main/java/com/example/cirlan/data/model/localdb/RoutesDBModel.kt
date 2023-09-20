@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "routes_table")
 data class RoutesDBModel(
-    @PrimaryKey val id: Int,
-    val name: String?,
-    val type: String?
+    @PrimaryKey val id: Int = 0,
+    val name: String? = "",
+    val type: String? = ""
 )

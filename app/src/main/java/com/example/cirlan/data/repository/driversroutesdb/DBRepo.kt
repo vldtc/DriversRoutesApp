@@ -6,6 +6,8 @@ import com.example.cirlan.data.model.localdb.RoutesDBModel
 interface DBRepo {
     fun getAllDrivers(): List<DriversDBModel>
 
+    fun getDriverById(id: String): DriversDBModel
+
     fun insertDriversData(driver: DriversDBModel)
 
     fun getAllRoutes(): List<RoutesDBModel>

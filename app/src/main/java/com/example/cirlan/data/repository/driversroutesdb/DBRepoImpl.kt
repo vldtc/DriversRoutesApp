@@ -11,11 +11,9 @@ class DBRepoImpl(
     ): DBRepo {
 
     override fun getAllDrivers(): List<DriversDBModel> = driversDAO.getAllDrivers()
-
+    override fun getDriverById(id: String): DriversDBModel = driversDAO.getDriverById(id)
     override fun insertDriversData(driver: DriversDBModel) = driversDAO.insertDriversData(driver)
-
     override fun getAllRoutes(): List<RoutesDBModel> = routesDAO.getAllRoutes()
-
     override fun insertRoutesData(route: RoutesDBModel) = routesDAO.insertRoutesData(route)
 
 
