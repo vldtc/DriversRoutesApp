@@ -2,8 +2,8 @@ package com.example.cirlan.di
 
 import com.example.cirlan.data.remote.ApiDetails
 import com.example.cirlan.data.remote.ApiRequest
-import com.example.cirlan.data.repository.ApiRepo
-import com.example.cirlan.data.repository.ApiRepoImplemented
+import com.example.cirlan.data.repository.driversroutesapi.ApiRepo
+import com.example.cirlan.data.repository.driversroutesapi.ApiRepoImplemented
 import com.example.cirlan.domain.mapper.DriverModelMapper
 import com.example.cirlan.domain.mapper.RouteModelMapper
 import com.google.gson.Gson
@@ -15,7 +15,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -69,7 +68,7 @@ class ApiModule{
         api: ApiRequest,
         driverModelMapper: DriverModelMapper,
         routeModelMapper: RouteModelMapper
-    ): ApiRepo{
+    ): ApiRepo {
         return ApiRepoImplemented(api, driverModelMapper, routeModelMapper)
     }
 }
