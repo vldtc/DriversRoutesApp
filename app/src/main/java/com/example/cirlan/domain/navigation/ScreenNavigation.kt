@@ -27,7 +27,10 @@ fun MainNavGraph(
         }
         composable("${ScreenRoutes.Routes.route}/{driverId}"){ backStackEntry ->
             RouteScreen(
-                backStackEntry.arguments?.getString("driverId").toString()
+                id = backStackEntry.arguments?.getString("driverId").toString(),
+                onBackButtonClicked = {
+                    navController.popBackStack()
+                }
             )
         }
     }
